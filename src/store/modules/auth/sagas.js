@@ -18,16 +18,17 @@ export function* signIn({ payload }) {
     const { token, user } = response.data;
 
     if (!user.provider) {
-      toast.error('User is not a provider');
-      yield put(signFailure());
+      toast.error('Usuário não é prestador');
       return;
     }
+
+    api.defaults.headers.Authorization = `Bearer ${token}`;
 
     yield put(signInSuccess(token, user));
 
     history.push('/dashboard');
   } catch (err) {
-    toast.error('Authenticate Failure');
+    toast.error('Falha na autenticação, verifique seus dados');
     yield put(signFailure());
   }
 }
@@ -45,7 +46,8 @@ export function* signUp({ payload }) {
 
     history.push('/');
   } catch (err) {
-    toast.error('Registration failure, check the entered datas');
+    toast.error('Falha no cadastro, verifique seus dados!');
+
     yield put(signFailure());
   }
 }
@@ -56,12 +58,17 @@ export function setToken({ payload }) {
   const { token } = payload.auth;
 
   if (token) {
-    api.defaults.headers.Authorization = `Beared ${token}`;
+    api.defaults.headers.Authorization = `Bearer ${token}`;
   }
+}
+
+export function signOut() {
+  history.push('/');
 }
 
 export default all([
   takeLatest('persist/REHYDRATE', setToken),
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
   takeLatest('@auth/SIGN_UP_REQUEST', signUp),
+  takeLatest('@auth/SIGN_OUT', signOut),
 ]);

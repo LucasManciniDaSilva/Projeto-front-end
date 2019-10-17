@@ -57,6 +57,7 @@ export const Profile = styled.div`
     }
   }
   img {
+    display: 200%;
     height: 32px;
     border-radius: 50%;
   }
