@@ -3,6 +3,7 @@ import {
   format,
   subDays,
   addDays,
+  setMilliseconds,
   setHours,
   setMinutes,
   setSeconds,
@@ -37,7 +38,10 @@ export default function Dashboard() {
       const { timeZone } = Intl.DateTimeFormat().resolvedOptions();
 
       const data = range.map(hour => {
-        const checkDate = setSeconds(setMinutes(setHours(date, hour), 0), 0);
+        const checkDate = setMilliseconds(
+          setSeconds(setMinutes(setHours(date, hour), 0), 0),
+          0
+        );
         const compareDate = utcToZonedTime(checkDate, timeZone);
 
         return {
@@ -77,7 +81,7 @@ export default function Dashboard() {
 
       <ul>
         {schedule.map(time => (
-          <Time key={time.time} past={time.past} available={!time.appointment}>
+          <Time key={time.time} past={time.past} available={time.appointment}>
             <strong>{time.time}</strong>
             <span>
               {time.appointment ? time.appointment.user.name : 'Em aberto'}
