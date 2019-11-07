@@ -14,7 +14,7 @@ export default function Header() {
     <Container>
       <Content>
         <nav>
-          <img src={logo} alt="GoBarber" />
+          <img src={logo} alt="BeautApp" />
           <Link to="/dashboard">DASHBOARD</Link>
         </nav>
 
@@ -28,10 +28,11 @@ export default function Header() {
             </div>
             <img
               src={
-                profile.avatar.url ||
-                'https://api.adorable.io/avatars/50/abott@adorable.png'
+                profile.avatar
+                  ? profile.avatar.url
+                  : 'https://api.adorable.io/avatars/50/abott@adorable.png'
               }
-              alt="Diego Fernandes"
+              alt="Avatar"
             />
           </Profile>
         </aside>

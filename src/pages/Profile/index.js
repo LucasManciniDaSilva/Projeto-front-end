@@ -30,10 +30,10 @@ export default function Profile() {
 
         <Input
           type="password"
-          name="oldPassword"
+          name="password"
           placeholder="your current password"
         />
-        <Input type="password" name="newpassword" placeholder="New Password" />
+        <Input type="password" name="password" placeholder="New Password" />
         <Input
           type="password"
           name="confirmPassword"
