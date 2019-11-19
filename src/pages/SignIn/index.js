@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
+// eslint-disable-next-line import/no-unresolved
 import { signInRequest } from '~/store/modules/auth/actions';
 
 import logo from '~/assets/logo.svg';
@@ -27,14 +28,14 @@ export default function SignIn() {
       <img src={logo} alt="GoBarber" />
 
       <Form schema={schema} onSubmit={handleSubmit}>
-        <Input name="email" type="email" placeholder="Enter your email" />
+        <Input name="email" type="email" placeholder="Informe seu e-mail" />
         <Input
           name="password"
           type="password"
-          placeholder="Enter your password"
+          placeholder="Informe sua senha"
         />
-        <button type="submit">{loading ? 'Loading...' : 'Login'}</button>
-        <Link to="/register">Register Now</Link>
+        <button type="submit">{loading ? 'Carregando' : 'Acessar'}</button>
+        <Link to="/register">Se registre agora</Link>
       </Form>
     </>
   );

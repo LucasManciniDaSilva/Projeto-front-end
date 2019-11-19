@@ -32,11 +32,13 @@ export const Content = styled.div`
         color: #fff;
       }
     }
-
+    #fb6f91
     span{
+
+      margin: 5px 0 0;
+      height: 44px;
       color: #fb6f91;
       align-self: flex-start;
-      margin: 0 0 10px;
       font-weight: bold;
 
     }
@@ -58,20 +60,19 @@ export const Content = styled.div`
     }
 
     a {
-      text-align: center;
-      margin-top: 30px;
-      margin: 5px 0 0;
-      height: 20px;
-      background: #ff6d6d;
-      font-weight: bold;
-      color: #fff;
-      border: 0;
-      border-radius: 4px;
-      font-size: 16px;
-      transition: background 0.2s;
+    margin: 10px 0 0;
 
-&:hover {
-  background: ${darken(0.03, '#ff6d6d')};
+    height:30px;
+    font-weight: bold;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background 0.2s;
+
+
+    &:hover {
+      background: ${darken(0.07, '#ff6d6d')};
     }
   }
 `;

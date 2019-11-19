@@ -23,28 +23,28 @@ export default function Profile() {
     <Container>
       <Form initialData={profile} onSubmit={handleSubmit}>
         <AvatarInput name="avatar_id" />
-        <Input name="name" placeholder="Your Fullname" />
-        <Input name="email" type="email" placeholder="Your email" />
+        <Input name="name" placeholder="Nome inteiro" />
+        <Input name="email" type="email" placeholder="Seu e-mail" />
 
         <hr />
 
         <Input
           type="password"
-          name="password"
-          placeholder="your current password"
+          name="oldPassword"
+          placeholder="Sua senha atual"
         />
-        <Input type="password" name="password" placeholder="New Password" />
+        <Input type="password" name="password" placeholder="Nova senha" />
         <Input
           type="password"
           name="confirmPassword"
-          placeholder="Confirm Password"
+          placeholder="Confirmar nova senha"
         />
 
-        <button type="submit">Update Profile</button>
+        <button type="submit">Atualizar</button>
       </Form>
 
       <button type="button" onClick={handleSignOut}>
-        Sair do Beautapp
+        Logout
       </button>
     </Container>
   );
